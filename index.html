@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ISQM 1 ve ISQM 2 Uygulama Rehberi</title>
+<style>
+:root{--n:#102a43;--b:#155e75;--t:#0f766e;--i:#1f2937;--m:#64748b;--g:#eef3f7;--p:#fff;--l:#d8e1e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--g);color:var(--i);font:16px/1.65 Arial,sans-serif}
+.layout{display:grid;grid-template-columns:285px 1fr;min-height:100vh}aside{position:sticky;top:0;height:100vh;overflow:auto;background:var(--n);padding:22px;color:#fff}
+aside a{display:block;color:#d6e2ec;text-decoration:none;padding:7px 9px;border-radius:7px;font-size:14px}aside a:hover{background:#1e3a5f}
+main{padding:32px}.paper{max-width:1120px;margin:auto;background:var(--p);border-radius:18px;overflow:hidden;box-shadow:0 14px 35px #0f27421a}
+header{padding:54px;background:linear-gradient(135deg,var(--n),var(--b));color:#fff}header h1{font-size:42px;line-height:1.15;margin:8px 0 12px}header p{font-size:19px;max-width:880px}
+section{padding:40px 54px;border-bottom:1px solid var(--l)}h2{color:var(--b);font-size:29px;margin:0 0 16px}h3{color:#173c5a;margin:26px 0 8px}
+.tag{display:inline-block;background:#e7f0f4;color:var(--b);font-size:12px;font-weight:700;padding:4px 8px;border-radius:999px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}
+.card{border:1px solid var(--l);border-radius:13px;padding:18px}.quote{border-left:5px solid var(--t);background:#edf8f7;padding:17px 20px;border-radius:9px;font-size:19px;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}th,td{border:1px solid var(--l);padding:11px 13px;text-align:left;vertical-align:top}th{background:#edf3f7;color:#163d59}
+.flow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:18px 0}.box{border:1px solid #9fc5d2;background:#f8fbfc;padding:10px 14px;border-radius:9px;font-weight:700}.arrow{color:var(--t);font-size:22px}
+.call{padding:17px 19px;border-radius:11px;margin:18px 0}.ok{background:#ecfdf5;border:1px solid #a7f3d0}.warn{background:#fff7ed;border:1px solid #fed7aa}.danger{background:#fff1f2;border:1px solid #fecdd3}
+.check{columns:2;column-gap:30px}.check li{break-inside:avoid;margin:6px 0}.small{font-size:13px;color:var(--m)}footer{background:var(--n);color:#d6e2ec;padding:26px 54px}
+@media(max-width:900px){.layout{display:block}aside{position:relative;height:auto}main{padding:0}.paper{border-radius:0}.grid,.grid3{grid-template-columns:1fr}.check{columns:1}header,section,footer{padding-left:24px;padding-right:24px}header h1{font-size:34px}}
+@media print{aside{display:none}.layout{display:block}main{padding:0}.paper{box-shadow:none;border-radius:0}}
+</style></head><body><div class="layout"><aside><h2>İçindekiler</h2>
+<a href="#giris">1. Genel Bakış</a><a href="#mimari">2. Standart Mimarisi</a><a href="#isqm1">3. ISQM 1</a><a href="#bilesenler">4. Sekiz Bileşen</a><a href="#risk">5. Risk Bazlı Yaklaşım</a><a href="#yonetisim">6. Yönetişim</a><a href="#etik">7. Etik ve Bağımsızlık</a><a href="#kabul">8. Müşteri Kabulü</a><a href="#kaynaklar">9. Kaynaklar</a><a href="#performans">10. İşin Yürütülmesi</a><a href="#izleme">11. İzleme ve Düzeltme</a><a href="#isqm2">12. ISQM 2</a><a href="#eqr">13. EQR Süreci</a><a href="#isa220">14. ISA/BDS 220</a><a href="#ornek">15. Uygulama Örneği</a><a href="#dokumanlar">16. Belge Seti</a><a href="#yol">17. Yol Haritası</a><a href="#kontrol">18. Kontrol Listesi</a><a href="#kaynakca">19. Kaynakça</a>
+</aside><main><article class="paper"><header><div>BAĞIMSIZ DENETİMDE KALİTE YÖNETİMİ</div><h1>ISQM 1 ve ISQM 2 Uygulama Rehberi</h1><p>Denetim firmalarında kalite yönetim sisteminin tasarımı, uygulanması, izlenmesi ve iş kalitesi gözden geçirmesinin yürütülmesine ilişkin bütünleşik rehber.</p></header><section id="giris"><span class="tag">1. GENEL BAKIŞ</span><h2>Kalite Kontrolünden Kalite Yönetimine Geçiş</h2>
+<p>ISQM seti, kaliteyi dosya sonunda kontrol edilen bir sonuç olmaktan çıkarıp firmanın yönetişim, insan kaynağı, teknoloji, müşteri kabulü, iş yürütümü ve izleme süreçlerine yerleştirilen sürekli bir yönetim sistemi hâline getirir.</p>
+<div class="flow"><div class="box">Kalite hedefleri</div><div class="arrow">→</div><div class="box">Kalite riskleri</div><div class="arrow">→</div><div class="box">Karşılıklar</div><div class="arrow">→</div><div class="box">İzleme</div><div class="arrow">→</div><div class="box">Düzeltme</div></div>
+<div class="quote">Yeni yaklaşımın özü, kontrol listesine sahip olmak değil; firmanın kendi koşullarına uygun, risk bazlı ve işleyen bir kalite yönetim sistemi kurmaktır.</div>
+<p>ISQM 1, ISQC 1'in yerini almıştır. Sistemlerin 15 Aralık 2022 itibarıyla tasarlanmış ve uygulanmış olması öngörülmüştür. ISQM 2 ise iş kalitesi gözden geçirmesinin kim tarafından ve nasıl yürütüleceğini düzenler.</p></section>
+
+<section id="mimari"><span class="tag">2. STANDART MİMARİSİ</span><h2>Üç Katmanlı Yapı</h2>
+<table><tr><th>Standart</th><th>Düzey</th><th>Temel soru</th></tr>
+<tr><td><b>ISQM 1</b></td><td>Firma</td><td>Firma kaliteyi kurumsal olarak nasıl yönetir?</td></tr>
+<tr><td><b>ISQM 2</b></td><td>Belirli işler</td><td>Hangi işler bağımsız kalite gözden geçirmesine tabi olur?</td></tr>
+<tr><td><b>ISA/BDS 220</b></td><td>Tek denetim işi</td><td>Sorumlu denetçi ve ekip iş kalitesini nasıl yönetir?</td></tr></table></section>
+
+<section id="isqm1"><span class="tag">3. ISQM 1</span><h2>ISQM 1'in Amacı ve Kapsamı</h2>
+<p>ISQM 1; denetim, sınırlı denetim, diğer güvence ve ilgili hizmetleri yürüten firmaların kalite yönetim sistemini düzenler. Sistem; firmanın büyüklüğüne, işlerin niteliğine, örgüt yapısına, ağ üyeliğine, teknoloji kullanımına ve risk profiline göre ölçeklenir.</p>
+<div class="grid"><div class="card"><h3>Kalite hedefi</h3><p>Firmanın ve personelin sorumluluklarını mesleki standartlara ve mevzuata uygun yerine getirmesi.</p></div><div class="card"><h3>Rapor kalitesi</h3><p>Yayımlanan raporların içinde bulunulan koşullara uygun olması.</p></div></div>
+<div class="warn call"><b>Önemli:</b> ISQM 1 her firmaya aynı prosedürü dayatmaz; aynı kalite hedeflerine ulaşmak için firmaya özgü kalite risklerine uygun karşılıklar ister.</div></section>
+
+<section id="bilesenler"><span class="tag">4. SEKİZ BİLEŞEN</span><h2>Kalite Yönetim Sisteminin Bileşenleri</h2>
+<div class="grid"><div class="card"><h3>1. Risk değerlendirme</h3><p>Kalite hedefleri, kalite riskleri ve karşılıkların belirlenmesi.</p></div><div class="card"><h3>2. Yönetişim ve liderlik</h3><p>Kalite kültürü, üst yönetimin sorumluluğu ve hesap verebilirlik.</p></div><div class="card"><h3>3. Etik hükümler</h3><p>Bağımsızlık, tarafsızlık, dürüstlük, gizlilik ve mesleki davranış.</p></div><div class="card"><h3>4. Kabul ve devam</h3><p>Müşteri ilişkilerinin ve işlerin kabulü ile devam ettirilmesi.</p></div><div class="card"><h3>5. İşin yürütülmesi</h3><p>Yönlendirme, gözetim, gözden geçirme, danışma ve görüş ayrılıkları.</p></div><div class="card"><h3>6. Kaynaklar</h3><p>İnsan, teknoloji, entelektüel kaynaklar ve hizmet sağlayıcılar.</p></div><div class="card"><h3>7. Bilgi ve iletişim</h3><p>Kalite bilgisinin üretilmesi, paylaşılması ve raporlanması.</p></div><div class="card"><h3>8. İzleme ve düzeltme</h3><p>Eksikliklerin tespiti, kök neden analizi ve düzeltici faaliyet.</p></div></div></section><section id="risk"><span class="tag">5. RİSK BAZLI YAKLAŞIM</span><h2>Kalite Hedefi, Risk ve Karşılık</h2>
+<table><tr><th>Aşama</th><th>Tanım</th><th>Örnek</th></tr>
+<tr><td>Kalite hedefi</td><td>Ulaşılmak istenen kalite sonucu</td><td>Ekiplerin yeterli yetkinlik ve zamana sahip olması</td></tr>
+<tr><td>Kalite riski</td><td>Hedefi olumsuz etkileyebilecek durum</td><td>Yoğun sezonda kıdemli personel yetersizliği</td></tr>
+<tr><td>Karşılık</td><td>Riski azaltan politika veya prosedür</td><td>Kaynak planı, kapasite eşiği, uzman havuzu</td></tr>
+<tr><td>İzleme</td><td>Karşılığın etkinliğinin değerlendirilmesi</td><td>Gecikme, bütçe aşımı ve kalite bulgularının izlenmesi</td></tr></table></section>
+
+<section id="yonetisim"><span class="tag">6. YÖNETİŞİM</span><h2>Yönetişim ve Liderlik</h2>
+<p>Kalitenin nihai sorumluluğu firmanın üst yönetimindedir. Sorumluluk yalnızca kalite kontrol birimine bırakılamaz.</p>
+<div class="grid3"><div class="card"><h3>Tone at the top</h3><p>Ortaklar ticari baskı karşısında kaliteyi önceliklendirir.</p></div><div class="card"><h3>Hesap verebilirlik</h3><p>Kalite sorumlulukları açıkça atanır ve performansla ilişkilendirilir.</p></div><div class="card"><h3>Kaynak tahsisi</h3><p>Kalite hedefleri yeterli bütçe, zaman ve personelle desteklenir.</p></div></div>
+<div class="danger call"><b>Risk örneği:</b> Ortakların yalnızca ciroya göre ödüllendirilmesi kalite karşıtı teşvik yaratabilir. Kalite göstergeleri ücretlendirme ve terfi sistemine alınmalıdır.</div></section>
+
+<section id="etik"><span class="tag">7. ETİK</span><h2>Etik Hükümler ve Bağımsızlık</h2>
+<table><tr><th>Risk</th><th>Örnek karşılık</th></tr>
+<tr><td>Finansal çıkar veya yakın ilişki</td><td>Yıllık ve iş bazlı bağımsızlık beyanı, merkezi ilişki veri tabanı</td></tr>
+<tr><td>Uzun süreli sorumlu ortak ilişkisi</td><td>Rotasyon ve bekleme süresi kontrolleri</td></tr>
+<tr><td>Denetim dışı hizmet tehdidi</td><td>Ön onay süreci ve yasaklı hizmet listesi</td></tr>
+<tr><td>İhlalin geç bildirilmesi</td><td>Bildirim kanalı, hızlı değerlendirme ve düzeltme</td></tr></table></section>
+
+<section id="kabul"><span class="tag">8. KABUL VE DEVAM</span><h2>Müşteri ve İş Kabulü</h2>
+<ul class="check"><li>Yönetimin dürüstlüğü</li><li>Faydalanıcı ve ortaklık yapısı</li><li>Kara para ve yaptırım riski</li><li>Önceki denetçiyle iletişim</li><li>İş kapsamı ve çerçevesi</li><li>Uzmanlık ihtiyacı</li><li>Kaynak ve zaman yeterliliği</li><li>Bağımsızlık</li><li>Ücret baskısı</li><li>Kapsam sınırlaması ihtimali</li></ul>
+<div class="warn call"><b>Devam kararı:</b> Mevcut müşteri her dönem otomatik devam ettirilmemeli; yeni bilgi, yönetim değişikliği, etik olay ve finansal sıkıntı yeniden değerlendirilmelidir.</div></section>
+
+<section id="kaynaklar"><span class="tag">9. KAYNAKLAR</span><h2>İnsan, Teknoloji ve Entelektüel Kaynaklar</h2>
+<table><tr><th>Kaynak</th><th>Risk</th><th>Karşılık</th></tr>
+<tr><td>İnsan</td><td>Yetkinlik ve zaman yetersizliği</td><td>Yetkinlik matrisi, iş yükü planı, eğitim</td></tr>
+<tr><td>Teknoloji</td><td>Yazılımın yetersiz veya güvensiz olması</td><td>Erişim kontrolü, test, yedekleme</td></tr>
+<tr><td>Entelektüel kaynak</td><td>Metodolojinin güncel olmaması</td><td>Versiyon kontrolü ve zorunlu güncelleme</td></tr>
+<tr><td>Dış hizmet sağlayıcı</td><td>Uzmanın kalite beklentisini karşılamaması</td><td>Ön yeterlilik, sözleşme, performans izleme</td></tr></table></section>
+
+<section id="performans"><span class="tag">10. İŞİN YÜRÜTÜLMESİ</span><h2>Kaliteli Denetim Süreci</h2>
+<div class="grid"><div class="card"><h3>Yönlendirme</h3><p>Ekip; amaç, risk, görev ve mesleki şüphecilik beklentisi hakkında bilgilendirilir.</p></div><div class="card"><h3>Gözetim</h3><p>İşin ilerlemesi, sorunlar, bütçe ve kaynak kullanımı izlenir.</p></div><div class="card"><h3>Gözden geçirme</h3><p>Çalışma kâğıtlarının ulaşılan sonuçlarla uyumu değerlendirilir.</p></div><div class="card"><h3>Danışma</h3><p>Zor konularda teknik birim veya yetkin kişiden görüş alınır.</p></div></div>
+<div class="danger call"><b>Görüş ayrılığı:</b> Ekip, teknik birim veya EQR arasındaki görüş ayrılığı çözülmeden rapor yayımlanmamalıdır.</div></section>
+
+<section id="izleme"><span class="tag">11. İZLEME</span><h2>İzleme, Eksiklik ve Kök Neden</h2>
+<div class="flow"><div class="box">Bulgu</div><div class="arrow">→</div><div class="box">Eksiklik mi?</div><div class="arrow">→</div><div class="box">Ciddiyet</div><div class="arrow">→</div><div class="box">Kök neden</div><div class="arrow">→</div><div class="box">Düzeltme</div></div>
+<p>İzleme yalnızca tamamlanmış dosya teftişinden oluşmaz. Bağımsızlık kayıtları, kabul kararları, eğitim, personel devir oranı, danışma kayıtları, teknoloji olayları ve şikâyetler de değerlendirilir.</p>
+<table><tr><th>Bulgu</th><th>Yüzeysel neden</th><th>Kök neden</th><th>Düzeltici faaliyet</th></tr>
+<tr><td>Stok sayımı yetersiz belgelenmiş</td><td>Form eksik</td><td>Şablon karmaşık, eğitim uygulamasız, inceleme geç</td><td>Şablon sadeleştirme, vaka eğitimi, eş zamanlı inceleme</td></tr></table></section><section id="isqm2"><span class="tag">12. ISQM 2</span><h2>İş Kalitesi Gözden Geçirmesi</h2>
+<p>ISQM 2; gözden geçiren kişinin atanması ve uygunluğu ile gözden geçirmenin yürütülmesi ve belgelendirilmesini düzenler. ISQM 1 uyarınca EQR gereken işlere uygulanır.</p>
+<div class="quote">EQR, denetimi yeniden yapmak değil; ekip tarafından varılan önemli yargıları ve sonuçları objektif olarak değerlendirmektir.</div>
+<ul><li>Borsada işlem gören işletmelerin finansal tablo denetimleri,</li><li>mevzuatın EQR öngördüğü işler,</li><li>firmanın kalite risklerine cevaben EQR gerekli gördüğü işler.</li></ul></section>
+
+<section id="eqr"><span class="tag">13. EQR SÜRECİ</span><h2>Uygunluk ve İnceleme Alanları</h2>
+<ul><li>Teknik yetkinlik, yetki ve yeterli zaman,</li><li>objektiflik ve bağımsızlık,</li><li>iş ekibinin üyesi olmama,</li><li>uygulanıyorsa bekleme süresine uyma.</li></ul>
+<table><tr><th>Alan</th><th>Değerlendirme</th></tr>
+<tr><td>Önemli yargılar</td><td>Yargıların dayanağı ve mesleki şüphecilik</td></tr>
+<tr><td>Önemli riskler</td><td>Risk değerlendirmesi ve denetim karşılığı</td></tr>
+<tr><td>Bağımsızlık</td><td>Etik hükümlere uyum</td></tr>
+<tr><td>Danışmalar</td><td>Zor konularda alınan görüşler</td></tr>
+<tr><td>Rapor</td><td>Önerilen raporun koşullara uygunluğu</td></tr></table>
+<div class="danger call"><b>Raporlama yasağı:</b> EQR tamamlanmadan denetim raporuna tarih verilmemeli ve rapor yayımlanmamalıdır.</div></section>
+
+<section id="isa220"><span class="tag">14. ISA/BDS 220</span><h2>Standartların Birlikte Çalışması</h2>
+<table><tr><th>Konu</th><th>ISQM 1</th><th>ISQM 2</th><th>ISA/BDS 220</th></tr>
+<tr><td>Düzey</td><td>Firma</td><td>Bağımsız gözden geçiren</td><td>Sorumlu denetçi ve ekip</td></tr>
+<tr><td>Odak</td><td>Kurumsal sistem</td><td>Önemli yargıların objektif incelemesi</td><td>Tek işte kalite</td></tr>
+<tr><td>Zaman</td><td>Sürekli</td><td>Rapor tarihinden önce</td><td>Planlamadan rapora kadar</td></tr></table></section>
+
+<section id="ornek"><span class="tag">15. UYGULAMA ÖRNEĞİ</span><h2>Orta Ölçekli Firma İçin Örnek Tasarım</h2>
+<p><b>Profil:</b> 4 ortak, 25 çalışan, 80 denetim işi, 5 KAYİK, tek ofis ve bulut tabanlı yazılım.</p>
+<table><tr><th>Hedef</th><th>Risk</th><th>Karşılık</th><th>Gösterge</th></tr>
+<tr><td>Yeterli personel</td><td>Yoğun sezonda kıdemli açığı</td><td>12 aylık plan, iş kabul kapasite eşiği</td><td>Kişi başı yük, gecikme</td></tr>
+<tr><td>Bağımsızlık</td><td>Yakın ilişkinin geç bildirilmesi</td><td>Merkezi beyan, üç aylık teyit</td><td>Geç bildirim sayısı</td></tr>
+<tr><td>Uygun yargı</td><td>Teknik danışmanın geç devreye girmesi</td><td>Zorunlu danışma tetikleyicileri</td><td>Danışma-rapor tarihi farkı</td></tr>
+<tr><td>Zamanında dosya</td><td>Arşivleme süresi aşımı</td><td>Otomatik uyarı ve ortak onayı</td><td>Geç dosya oranı</td></tr></table></section>
+
+<section id="dokumanlar"><span class="tag">16. BELGE SETİ</span><h2>Asgari Dokümantasyon</h2>
+<ul class="check"><li>Kalite yönetim sistemi el kitabı</li><li>Kalite hedefleri ve risk envanteri</li><li>Risk-karşılık matrisi</li><li>Yetki ve sorumluluk matrisi</li><li>Bağımsızlık politika ve beyanları</li><li>Müşteri kabul formları</li><li>İş yükü planı</li><li>Yetkinlik ve eğitim matrisi</li><li>Danışma prosedürü</li><li>Görüş ayrılığı prosedürü</li><li>EQR seçim kriterleri</li><li>EQR uygunluk beyanı</li><li>EQR çalışma formu</li><li>Şikâyet prosedürü</li><li>Dosya inceleme programı</li><li>Kök neden kayıtları</li><li>Düzeltici faaliyet planı</li><li>Yıllık değerlendirme raporu</li></ul></section>
+
+<section id="yol"><span class="tag">17. YOL HARİTASI</span><h2>12 Haftalık Uygulama Planı</h2>
+<table><tr><th>Dönem</th><th>Çalışma</th><th>Çıktı</th></tr>
+<tr><td>1–2</td><td>Firma ve iş yapısı analizi</td><td>Kapsam ve proje planı</td></tr>
+<tr><td>3–4</td><td>Kalite hedefi ve riskler</td><td>Risk envanteri</td></tr>
+<tr><td>5–6</td><td>Politika ve karşılık tasarımı</td><td>Risk-karşılık matrisi</td></tr>
+<tr><td>7–8</td><td>EQR sürecinin kurulması</td><td>EQR prosedürü ve formlar</td></tr>
+<tr><td>9–10</td><td>Teknoloji, eğitim ve pilot</td><td>Pilot bulguları</td></tr>
+<tr><td>11–12</td><td>Düzeltme, onay ve devreye alma</td><td>Onaylı sistem</td></tr></table></section>
+
+<section id="kontrol"><span class="tag">18. KONTROL LİSTESİ</span><h2>Yönetim İçin Hızlı Uyum Kontrolü</h2>
+<ul class="check"><li>Kalite hedefleri yazılı mı?</li><li>Riskler firmaya özgü mü?</li><li>Her risk için karşılık var mı?</li><li>Sorumluluklar açık mı?</li><li>Ortak performansı kaliteyle ilişkili mi?</li><li>Bağımsızlık merkezi izleniyor mu?</li><li>Kabulde kapasite değerlendiriliyor mu?</li><li>Metodoloji güncel mi?</li><li>Dış hizmet sağlayıcılar izleniyor mu?</li><li>EQR gereken işler tanımlı mı?</li><li>EQR uygunluğu belgeli mi?</li><li>Rapor EQR öncesi engelleniyor mu?</li><li>İzleme risk bazlı mı?</li><li>Kök neden analizi yapılıyor mu?</li><li>Düzeltmeler test ediliyor mu?</li><li>Sistem yıllık değerlendiriliyor mu?</li></ul></section>
+
+<section id="kaynakca"><span class="tag">19. RESMÎ KAYNAKLAR</span><h2>Kaynakça</h2>
+<p><a href="https://www.iaasb.org/publications/international-standard-quality-management-isqm-1-quality-management-firms-perform-audits-or-reviews">IAASB – ISQM 1</a></p>
+<p><a href="https://www.iaasb.org/publications/international-standard-quality-management-isqm-2-engaging-quality-reviews">IAASB – ISQM 2</a></p>
+<p><a href="https://www.iaasb.org/publications/international-standard-auditing-220-revised-quality-management-audit-financial-statements">IAASB – ISA 220 (Revised)</a></p>
+<p><a href="https://www.iaasb.org/focus-areas/quality-management">IAASB – Quality Management Resources</a></p>
+<p class="small">Bu rehber eğitim ve uygulama tasarımı amacıyla hazırlanmıştır. Bağlayıcı uygulamada yürürlükteki KGK düzenlemeleri, ulusal mevzuat ve resmî standart metinleri esas alınmalıdır.</p></section>
+
+<footer>ISQM 1 ve ISQM 2 Uygulama Rehberi — Firma düzeyi kalite yönetimi, iş kalitesi gözden geçirmesi ve ISA/BDS 220 bağlantısı.</footer>
+</article></main></div></body></html>
