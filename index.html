@@ -1,130 +1,595 @@
-<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ISQM 1 ve ISQM 2 Uygulama Rehberi</title>
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Üçün Anlamı — İdris’in İlk Kesiğinden Hızır’ın Yoluna Matematiksel Modelleme</title>
+<!-- SOCIAL_PREVIEW_START -->
+<meta name="description" content="İdris’in varlığa attığı ilk kesikten Hızır’ın yoluna; üç, çevrim, çark ve mihrap üzerine matematiksel modellemeli ansiklopedik fasikül.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Soraser / Sarus">
+<meta property="og:title" content="Üçün Anlamı — İdris’in İlk Kesiğinden Hızır’ın Yoluna">
+<meta property="og:description" content="İdris’in varlığa attığı ilk kesikten Hızır’ın yoluna; üç, çevrim, çark ve mihrap üzerine matematiksel modellemeli ansiklopedik fasikül.">
+<meta property="og:image" content="https://raw.githubusercontent.com/alialtunsmm-prog/isqm-rehberi/vercel-uc-anlami/og.jpg">
+<meta property="og:image:secure_url" content="https://raw.githubusercontent.com/alialtunsmm-prog/isqm-rehberi/vercel-uc-anlami/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="315">
+<meta property="og:image:alt" content="Tarihî taş kabartma üzerindeki spiral ve dalga motifleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Üçün Anlamı — İdris’in İlk Kesiğinden Hızır’ın Yoluna">
+<meta name="twitter:description" content="İdris’in varlığa attığı ilk kesikten Hızır’ın yoluna; üç, çevrim, çark ve mihrap üzerine matematiksel modellemeli ansiklopedik fasikül.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/alialtunsmm-prog/isqm-rehberi/vercel-uc-anlami/og.jpg">
+<meta name="twitter:image:alt" content="Tarihî taş kabartma üzerindeki spiral ve dalga motifleri">
+<!-- SOCIAL_PREVIEW_END -->
 <style>
-:root{--n:#102a43;--b:#155e75;--t:#0f766e;--i:#1f2937;--m:#64748b;--g:#eef3f7;--p:#fff;--l:#d8e1e8}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--g);color:var(--i);font:16px/1.65 Arial,sans-serif}
-.layout{display:grid;grid-template-columns:285px 1fr;min-height:100vh}aside{position:sticky;top:0;height:100vh;overflow:auto;background:var(--n);padding:22px;color:#fff}
-aside a{display:block;color:#d6e2ec;text-decoration:none;padding:7px 9px;border-radius:7px;font-size:14px}aside a:hover{background:#1e3a5f}
-main{padding:32px}.paper{max-width:1120px;margin:auto;background:var(--p);border-radius:18px;overflow:hidden;box-shadow:0 14px 35px #0f27421a}
-header{padding:54px;background:linear-gradient(135deg,var(--n),var(--b));color:#fff}header h1{font-size:42px;line-height:1.15;margin:8px 0 12px}header p{font-size:19px;max-width:880px}
-section{padding:40px 54px;border-bottom:1px solid var(--l)}h2{color:var(--b);font-size:29px;margin:0 0 16px}h3{color:#173c5a;margin:26px 0 8px}
-.tag{display:inline-block;background:#e7f0f4;color:var(--b);font-size:12px;font-weight:700;padding:4px 8px;border-radius:999px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}
-.card{border:1px solid var(--l);border-radius:13px;padding:18px}.quote{border-left:5px solid var(--t);background:#edf8f7;padding:17px 20px;border-radius:9px;font-size:19px;font-weight:700}
-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}th,td{border:1px solid var(--l);padding:11px 13px;text-align:left;vertical-align:top}th{background:#edf3f7;color:#163d59}
-.flow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:18px 0}.box{border:1px solid #9fc5d2;background:#f8fbfc;padding:10px 14px;border-radius:9px;font-weight:700}.arrow{color:var(--t);font-size:22px}
-.call{padding:17px 19px;border-radius:11px;margin:18px 0}.ok{background:#ecfdf5;border:1px solid #a7f3d0}.warn{background:#fff7ed;border:1px solid #fed7aa}.danger{background:#fff1f2;border:1px solid #fecdd3}
-.check{columns:2;column-gap:30px}.check li{break-inside:avoid;margin:6px 0}.small{font-size:13px;color:var(--m)}footer{background:var(--n);color:#d6e2ec;padding:26px 54px}
-@media(max-width:900px){.layout{display:block}aside{position:relative;height:auto}main{padding:0}.paper{border-radius:0}.grid,.grid3{grid-template-columns:1fr}.check{columns:1}header,section,footer{padding-left:24px;padding-right:24px}header h1{font-size:34px}}
-@media print{aside{display:none}.layout{display:block}main{padding:0}.paper{box-shadow:none;border-radius:0}}
-</style></head><body><div class="layout"><aside><h2>İçindekiler</h2>
-<a href="#giris">1. Genel Bakış</a><a href="#mimari">2. Standart Mimarisi</a><a href="#isqm1">3. ISQM 1</a><a href="#bilesenler">4. Sekiz Bileşen</a><a href="#risk">5. Risk Bazlı Yaklaşım</a><a href="#yonetisim">6. Yönetişim</a><a href="#etik">7. Etik ve Bağımsızlık</a><a href="#kabul">8. Müşteri Kabulü</a><a href="#kaynaklar">9. Kaynaklar</a><a href="#performans">10. İşin Yürütülmesi</a><a href="#izleme">11. İzleme ve Düzeltme</a><a href="#isqm2">12. ISQM 2</a><a href="#eqr">13. EQR Süreci</a><a href="#isa220">14. ISA/BDS 220</a><a href="#ornek">15. Uygulama Örneği</a><a href="#dokumanlar">16. Belge Seti</a><a href="#yol">17. Yol Haritası</a><a href="#kontrol">18. Kontrol Listesi</a><a href="#kaynakca">19. Kaynakça</a>
-</aside><main><article class="paper"><header><div>BAĞIMSIZ DENETİMDE KALİTE YÖNETİMİ</div><h1>ISQM 1 ve ISQM 2 Uygulama Rehberi</h1><p>Denetim firmalarında kalite yönetim sisteminin tasarımı, uygulanması, izlenmesi ve iş kalitesi gözden geçirmesinin yürütülmesine ilişkin bütünleşik rehber.</p></header><section id="giris"><span class="tag">1. GENEL BAKIŞ</span><h2>Kalite Kontrolünden Kalite Yönetimine Geçiş</h2>
-<p>ISQM seti, kaliteyi dosya sonunda kontrol edilen bir sonuç olmaktan çıkarıp firmanın yönetişim, insan kaynağı, teknoloji, müşteri kabulü, iş yürütümü ve izleme süreçlerine yerleştirilen sürekli bir yönetim sistemi hâline getirir.</p>
-<div class="flow"><div class="box">Kalite hedefleri</div><div class="arrow">→</div><div class="box">Kalite riskleri</div><div class="arrow">→</div><div class="box">Karşılıklar</div><div class="arrow">→</div><div class="box">İzleme</div><div class="arrow">→</div><div class="box">Düzeltme</div></div>
-<div class="quote">Yeni yaklaşımın özü, kontrol listesine sahip olmak değil; firmanın kendi koşullarına uygun, risk bazlı ve işleyen bir kalite yönetim sistemi kurmaktır.</div>
-<p>ISQM 1, ISQC 1'in yerini almıştır. Sistemlerin 15 Aralık 2022 itibarıyla tasarlanmış ve uygulanmış olması öngörülmüştür. ISQM 2 ise iş kalitesi gözden geçirmesinin kim tarafından ve nasıl yürütüleceğini düzenler.</p></section>
+  :root{
+    --bg:#f6f4ef;
+    --paper:#ffffff;
+    --ink:#1d1d1b;
+    --muted:#66645d;
+    --line:#ddd7cc;
+    --soft:#f1ede5;
+    --accent:#5f4a2d;
+    --accent2:#2f5d73;
+    --good:#e8f1ea;
+    --warn:#f6ecd9;
+    --deep:#111827;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Inter, "Segoe UI", Arial, sans-serif;
+    line-height:1.7;
+  }
+  .wrap{
+    max-width:1200px;
+    margin:0 auto;
+    padding:32px 20px 72px;
+  }
+  .hero, section, .toc{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:28px;
+    margin-bottom:20px;
+  }
+  h1{
+    margin:0 0 8px;
+    font-size:clamp(30px, 5vw, 58px);
+    line-height:1.06;
+    letter-spacing:-.03em;
+  }
+  h2{
+    margin:0 0 16px;
+    font-size:30px;
+    line-height:1.15;
+    letter-spacing:-.02em;
+  }
+  h3{
+    margin:22px 0 10px;
+    font-size:21px;
+    line-height:1.2;
+  }
+  h4{
+    margin:18px 0 8px;
+    font-size:17px;
+  }
+  p{margin:10px 0 14px}
+  .kicker{
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:12px;
+    font-weight:700;
+    color:var(--accent);
+  }
+  .sub{
+    color:var(--muted);
+    max-width:920px;
+  }
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:14px;
+  }
+  .pill{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:999px;
+    background:var(--soft);
+    border:1px solid var(--line);
+    font-size:12px;
+    font-weight:700;
+  }
+  .note, .callout{
+    padding:16px 18px;
+    border-left:5px solid var(--accent);
+    background:#faf8f4;
+    border-radius:14px;
+    margin:16px 0;
+  }
+  .note.good{border-left-color:#577b5f;background:var(--good)}
+  .note.warn{border-left-color:#a8742e;background:var(--warn)}
+  .grid-2{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+  }
+  .card{
+    background:#fffdfa;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:18px;
+  }
+  .toc ol{
+    margin:0;
+    padding-left:22px;
+  }
+  .toc li{margin:6px 0}
+  .formula{
+    display:block;
+    background:var(--deep);
+    color:#f9f7f0;
+    border-radius:14px;
+    padding:16px 18px;
+    overflow:auto;
+    font-family:ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size:15px;
+    white-space:pre-wrap;
+    margin:14px 0;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:16px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    margin:14px 0;
+  }
+  th, td{
+    padding:12px 14px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+    text-align:left;
+  }
+  th{
+    background:var(--soft);
+    font-size:13px;
+  }
+  tr:last-child td{border-bottom:none}
+  .small{
+    font-size:13px;
+    color:var(--muted);
+  }
+  .center{
+    text-align:center;
+  }
+  .svgbox{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:14px;
+    margin:14px 0;
+  }
+  svg text{
+    font-family:Inter, Arial, sans-serif;
+    fill:#222;
+  }
+  ul{padding-left:22px}
+  li{margin:6px 0}
+  hr{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:26px 0;
+  }
+  .footer{
+    color:var(--muted);
+    font-size:13px;
+  }
+  @media (max-width: 900px){
+    .grid-2, .grid-3{grid-template-columns:1fr}
+    .hero, section, .toc{padding:22px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
 
-<section id="mimari"><span class="tag">2. STANDART MİMARİSİ</span><h2>Üç Katmanlı Yapı</h2>
-<table><tr><th>Standart</th><th>Düzey</th><th>Temel soru</th></tr>
-<tr><td><b>ISQM 1</b></td><td>Firma</td><td>Firma kaliteyi kurumsal olarak nasıl yönetir?</td></tr>
-<tr><td><b>ISQM 2</b></td><td>Belirli işler</td><td>Hangi işler bağımsız kalite gözden geçirmesine tabi olur?</td></tr>
-<tr><td><b>ISA/BDS 220</b></td><td>Tek denetim işi</td><td>Sorumlu denetçi ve ekip iş kalitesini nasıl yönetir?</td></tr></table></section>
+  <header class="hero">
+    <div class="kicker">Ansiklopedik Fasikül · Soraser / Sarus Çalışma Dosyası</div>
+    <h1>Üçün Anlamı</h1>
+    <p class="sub"><strong>İdris’in varlığa attığı ilk kesikten Hızır’ın yoluna, matematiksel modelleme eşliğinde bir yorum denemesi.</strong> Bu metin tarihî-belgesel bir kesin hüküm değil; arşivdeki çekirdek beyanları esas alan, ontolojik ve matematiksel bir çözümleme teklifidir. Buradaki “İdris”, “Hızır”, “ilk kesik”, “ilmek”, “çark” ve “mihrap” kavramları simgesel–kuramsal düzlemde kullanılmaktadır.</p>
+    <div class="meta">
+      <span class="pill">Biçim: HTML ansiklopedik fasikül</span>
+      <span class="pill">Yöntem: ontoloji + sembol çözümleme + matematiksel modelleme</span>
+      <span class="pill">Temel tez: Üç = kapanma değil, çevrim üretimi</span>
+    </div>
+  </header>
 
-<section id="isqm1"><span class="tag">3. ISQM 1</span><h2>ISQM 1'in Amacı ve Kapsamı</h2>
-<p>ISQM 1; denetim, sınırlı denetim, diğer güvence ve ilgili hizmetleri yürüten firmaların kalite yönetim sistemini düzenler. Sistem; firmanın büyüklüğüne, işlerin niteliğine, örgüt yapısına, ağ üyeliğine, teknoloji kullanımına ve risk profiline göre ölçeklenir.</p>
-<div class="grid"><div class="card"><h3>Kalite hedefi</h3><p>Firmanın ve personelin sorumluluklarını mesleki standartlara ve mevzuata uygun yerine getirmesi.</p></div><div class="card"><h3>Rapor kalitesi</h3><p>Yayımlanan raporların içinde bulunulan koşullara uygun olması.</p></div></div>
-<div class="warn call"><b>Önemli:</b> ISQM 1 her firmaya aynı prosedürü dayatmaz; aynı kalite hedeflerine ulaşmak için firmaya özgü kalite risklerine uygun karşılıklar ister.</div></section>
+  <nav class="toc">
+    <h2>İçindekiler</h2>
+    <ol>
+      <li>Girizgâh: Üç niçin önemlidir?</li>
+      <li>İdris’in ilk kesiği: varlıkta ayrımın doğuşu</li>
+      <li>Hızır’ın yolu: iki yakayı bağlayan devinim</li>
+      <li>Bir, iki, üç: ontolojik basamakların özeti</li>
+      <li>Matematiksel modelleme</li>
+      <li>Çark, çevrim, mihrap ve geri besleme</li>
+      <li>İnsanî düzlem: idrak–irade–kudret ve fiil</li>
+      <li>Sonuç: “Üç”ün kanonik kısa tanımı</li>
+    </ol>
+  </nav>
 
-<section id="bilesenler"><span class="tag">4. SEKİZ BİLEŞEN</span><h2>Kalite Yönetim Sisteminin Bileşenleri</h2>
-<div class="grid"><div class="card"><h3>1. Risk değerlendirme</h3><p>Kalite hedefleri, kalite riskleri ve karşılıkların belirlenmesi.</p></div><div class="card"><h3>2. Yönetişim ve liderlik</h3><p>Kalite kültürü, üst yönetimin sorumluluğu ve hesap verebilirlik.</p></div><div class="card"><h3>3. Etik hükümler</h3><p>Bağımsızlık, tarafsızlık, dürüstlük, gizlilik ve mesleki davranış.</p></div><div class="card"><h3>4. Kabul ve devam</h3><p>Müşteri ilişkilerinin ve işlerin kabulü ile devam ettirilmesi.</p></div><div class="card"><h3>5. İşin yürütülmesi</h3><p>Yönlendirme, gözetim, gözden geçirme, danışma ve görüş ayrılıkları.</p></div><div class="card"><h3>6. Kaynaklar</h3><p>İnsan, teknoloji, entelektüel kaynaklar ve hizmet sağlayıcılar.</p></div><div class="card"><h3>7. Bilgi ve iletişim</h3><p>Kalite bilgisinin üretilmesi, paylaşılması ve raporlanması.</p></div><div class="card"><h3>8. İzleme ve düzeltme</h3><p>Eksikliklerin tespiti, kök neden analizi ve düzeltici faaliyet.</p></div></div></section><section id="risk"><span class="tag">5. RİSK BAZLI YAKLAŞIM</span><h2>Kalite Hedefi, Risk ve Karşılık</h2>
-<table><tr><th>Aşama</th><th>Tanım</th><th>Örnek</th></tr>
-<tr><td>Kalite hedefi</td><td>Ulaşılmak istenen kalite sonucu</td><td>Ekiplerin yeterli yetkinlik ve zamana sahip olması</td></tr>
-<tr><td>Kalite riski</td><td>Hedefi olumsuz etkileyebilecek durum</td><td>Yoğun sezonda kıdemli personel yetersizliği</td></tr>
-<tr><td>Karşılık</td><td>Riski azaltan politika veya prosedür</td><td>Kaynak planı, kapasite eşiği, uzman havuzu</td></tr>
-<tr><td>İzleme</td><td>Karşılığın etkinliğinin değerlendirilmesi</td><td>Gecikme, bütçe aşımı ve kalite bulgularının izlenmesi</td></tr></table></section>
+  <section>
+    <h2>1. Girizgâh: Üç niçin önemlidir?</h2>
+    <p>“Üç” burada yalnızca aritmetik bir sayı değildir. O, <strong>ilişkilerin kendini yeniden üretebildiği en küçük canlı eşiği</strong> olarak ele alınır. Tek olan vardır; iki olan karşılaşır; fakat üçün gelişiyle ilişki bir <em>çevrim</em> kazanır. Bu yüzden üçü yalnız denge, üçgen veya kapanma üzerinden okumak yetersiz kalır.</p>
+    <p>Bu fasikülde savunulan görüş şudur: <strong>Üç, üçüncü bir nesnenin eklenmesi değil; varlıkta açılan ayrımın, geri dönüşlü bir ilişki üretir hâle gelmesidir.</strong> Bu yorumda ilk ayrımı açan simgesel isim <strong>İdris</strong>; açılmış ayrım boyunca yürüyen, iki yakayı yeniden dolaşıma sokan simgesel isim ise <strong>Hızır</strong>tır.</p>
 
-<section id="yonetisim"><span class="tag">6. YÖNETİŞİM</span><h2>Yönetişim ve Liderlik</h2>
-<p>Kalitenin nihai sorumluluğu firmanın üst yönetimindedir. Sorumluluk yalnızca kalite kontrol birimine bırakılamaz.</p>
-<div class="grid3"><div class="card"><h3>Tone at the top</h3><p>Ortaklar ticari baskı karşısında kaliteyi önceliklendirir.</p></div><div class="card"><h3>Hesap verebilirlik</h3><p>Kalite sorumlulukları açıkça atanır ve performansla ilişkilendirilir.</p></div><div class="card"><h3>Kaynak tahsisi</h3><p>Kalite hedefleri yeterli bütçe, zaman ve personelle desteklenir.</p></div></div>
-<div class="danger call"><b>Risk örneği:</b> Ortakların yalnızca ciroya göre ödüllendirilmesi kalite karşıtı teşvik yaratabilir. Kalite göstergeleri ücretlendirme ve terfi sistemine alınmalıdır.</div></section>
+    <div class="note good">
+      <strong>Kısa tez:</strong> İdris “ilk kesik”tir; Hızır “süreklilik içinde yol”dur. Üç ise bu kesik ve yol arasında doğan <strong>çevrimsel geri dönüş düzenidir.</strong>
+    </div>
+  </section>
 
-<section id="etik"><span class="tag">7. ETİK</span><h2>Etik Hükümler ve Bağımsızlık</h2>
-<table><tr><th>Risk</th><th>Örnek karşılık</th></tr>
-<tr><td>Finansal çıkar veya yakın ilişki</td><td>Yıllık ve iş bazlı bağımsızlık beyanı, merkezi ilişki veri tabanı</td></tr>
-<tr><td>Uzun süreli sorumlu ortak ilişkisi</td><td>Rotasyon ve bekleme süresi kontrolleri</td></tr>
-<tr><td>Denetim dışı hizmet tehdidi</td><td>Ön onay süreci ve yasaklı hizmet listesi</td></tr>
-<tr><td>İhlalin geç bildirilmesi</td><td>Bildirim kanalı, hızlı değerlendirme ve düzeltme</td></tr></table></section>
+  <section>
+    <h2>2. İdris’in ilk kesiği: varlıkta ayrımın doğuşu</h2>
+    <p>“İlk kesik” kavramı, varlığı yoktan var etme iddiası taşımaz. Buradaki anlamı şudur: Varlığın yekpare görünen zemini içinde bir <strong>ayrım</strong>, bir <strong>belirlenim</strong>, bir <strong>fark</strong> açılır. İşte bu açılış, düşünsel olarak “İdris’in varlığa attığı ilk kesik” diye okunur.</p>
 
-<section id="kabul"><span class="tag">8. KABUL VE DEVAM</span><h2>Müşteri ve İş Kabulü</h2>
-<ul class="check"><li>Yönetimin dürüstlüğü</li><li>Faydalanıcı ve ortaklık yapısı</li><li>Kara para ve yaptırım riski</li><li>Önceki denetçiyle iletişim</li><li>İş kapsamı ve çerçevesi</li><li>Uzmanlık ihtiyacı</li><li>Kaynak ve zaman yeterliliği</li><li>Bağımsızlık</li><li>Ücret baskısı</li><li>Kapsam sınırlaması ihtimali</li></ul>
-<div class="warn call"><b>Devam kararı:</b> Mevcut müşteri her dönem otomatik devam ettirilmemeli; yeni bilgi, yönetim değişikliği, etik olay ve finansal sıkıntı yeniden değerlendirilmelidir.</div></section>
+    <div class="svgbox">
+      <svg viewBox="0 0 980 250" width="100%" height="auto" role="img" aria-label="İdris'in ilk kesik diyagramı">
+        <rect x="20" y="40" width="280" height="150" rx="18" fill="#f5efe4" stroke="#d8cfbf"/>
+        <text x="160" y="88" font-size="24" text-anchor="middle" font-weight="700">Varlık Zemini</text>
+        <text x="160" y="124" font-size="16" text-anchor="middle">Henüz ayrışmamış imkân</text>
+        <text x="160" y="148" font-size="16" text-anchor="middle">Süreğen bütünlük</text>
 
-<section id="kaynaklar"><span class="tag">9. KAYNAKLAR</span><h2>İnsan, Teknoloji ve Entelektüel Kaynaklar</h2>
-<table><tr><th>Kaynak</th><th>Risk</th><th>Karşılık</th></tr>
-<tr><td>İnsan</td><td>Yetkinlik ve zaman yetersizliği</td><td>Yetkinlik matrisi, iş yükü planı, eğitim</td></tr>
-<tr><td>Teknoloji</td><td>Yazılımın yetersiz veya güvensiz olması</td><td>Erişim kontrolü, test, yedekleme</td></tr>
-<tr><td>Entelektüel kaynak</td><td>Metodolojinin güncel olmaması</td><td>Versiyon kontrolü ve zorunlu güncelleme</td></tr>
-<tr><td>Dış hizmet sağlayıcı</td><td>Uzmanın kalite beklentisini karşılamaması</td><td>Ön yeterlilik, sözleşme, performans izleme</td></tr></table></section>
+        <line x1="340" y1="115" x2="430" y2="115" stroke="#8a6a3f" stroke-width="4"/>
+        <polygon points="430,115 414,106 414,124" fill="#8a6a3f"/>
+        <text x="385" y="95" font-size="16" text-anchor="middle" fill="#5f4a2d">İdris’in ilk kesiği</text>
 
-<section id="performans"><span class="tag">10. İŞİN YÜRÜTÜLMESİ</span><h2>Kaliteli Denetim Süreci</h2>
-<div class="grid"><div class="card"><h3>Yönlendirme</h3><p>Ekip; amaç, risk, görev ve mesleki şüphecilik beklentisi hakkında bilgilendirilir.</p></div><div class="card"><h3>Gözetim</h3><p>İşin ilerlemesi, sorunlar, bütçe ve kaynak kullanımı izlenir.</p></div><div class="card"><h3>Gözden geçirme</h3><p>Çalışma kâğıtlarının ulaşılan sonuçlarla uyumu değerlendirilir.</p></div><div class="card"><h3>Danışma</h3><p>Zor konularda teknik birim veya yetkin kişiden görüş alınır.</p></div></div>
-<div class="danger call"><b>Görüş ayrılığı:</b> Ekip, teknik birim veya EQR arasındaki görüş ayrılığı çözülmeden rapor yayımlanmamalıdır.</div></section>
+        <rect x="470" y="40" width="220" height="150" rx="18" fill="#eef4f8" stroke="#c9d9e2"/>
+        <text x="580" y="88" font-size="24" text-anchor="middle" font-weight="700">Birinci Yaka</text>
+        <text x="580" y="124" font-size="16" text-anchor="middle">Taraf / yön / yüz</text>
 
-<section id="izleme"><span class="tag">11. İZLEME</span><h2>İzleme, Eksiklik ve Kök Neden</h2>
-<div class="flow"><div class="box">Bulgu</div><div class="arrow">→</div><div class="box">Eksiklik mi?</div><div class="arrow">→</div><div class="box">Ciddiyet</div><div class="arrow">→</div><div class="box">Kök neden</div><div class="arrow">→</div><div class="box">Düzeltme</div></div>
-<p>İzleme yalnızca tamamlanmış dosya teftişinden oluşmaz. Bağımsızlık kayıtları, kabul kararları, eğitim, personel devir oranı, danışma kayıtları, teknoloji olayları ve şikâyetler de değerlendirilir.</p>
-<table><tr><th>Bulgu</th><th>Yüzeysel neden</th><th>Kök neden</th><th>Düzeltici faaliyet</th></tr>
-<tr><td>Stok sayımı yetersiz belgelenmiş</td><td>Form eksik</td><td>Şablon karmaşık, eğitim uygulamasız, inceleme geç</td><td>Şablon sadeleştirme, vaka eğitimi, eş zamanlı inceleme</td></tr></table></section><section id="isqm2"><span class="tag">12. ISQM 2</span><h2>İş Kalitesi Gözden Geçirmesi</h2>
-<p>ISQM 2; gözden geçiren kişinin atanması ve uygunluğu ile gözden geçirmenin yürütülmesi ve belgelendirilmesini düzenler. ISQM 1 uyarınca EQR gereken işlere uygulanır.</p>
-<div class="quote">EQR, denetimi yeniden yapmak değil; ekip tarafından varılan önemli yargıları ve sonuçları objektif olarak değerlendirmektir.</div>
-<ul><li>Borsada işlem gören işletmelerin finansal tablo denetimleri,</li><li>mevzuatın EQR öngördüğü işler,</li><li>firmanın kalite risklerine cevaben EQR gerekli gördüğü işler.</li></ul></section>
+        <rect x="740" y="40" width="220" height="150" rx="18" fill="#f7efe8" stroke="#e4d4c3"/>
+        <text x="850" y="88" font-size="24" text-anchor="middle" font-weight="700">İkinci Yaka</text>
+        <text x="850" y="124" font-size="16" text-anchor="middle">Karşı-yön / öte-yüz</text>
 
-<section id="eqr"><span class="tag">13. EQR SÜRECİ</span><h2>Uygunluk ve İnceleme Alanları</h2>
-<ul><li>Teknik yetkinlik, yetki ve yeterli zaman,</li><li>objektiflik ve bağımsızlık,</li><li>iş ekibinin üyesi olmama,</li><li>uygulanıyorsa bekleme süresine uyma.</li></ul>
-<table><tr><th>Alan</th><th>Değerlendirme</th></tr>
-<tr><td>Önemli yargılar</td><td>Yargıların dayanağı ve mesleki şüphecilik</td></tr>
-<tr><td>Önemli riskler</td><td>Risk değerlendirmesi ve denetim karşılığı</td></tr>
-<tr><td>Bağımsızlık</td><td>Etik hükümlere uyum</td></tr>
-<tr><td>Danışmalar</td><td>Zor konularda alınan görüşler</td></tr>
-<tr><td>Rapor</td><td>Önerilen raporun koşullara uygunluğu</td></tr></table>
-<div class="danger call"><b>Raporlama yasağı:</b> EQR tamamlanmadan denetim raporuna tarih verilmemeli ve rapor yayımlanmamalıdır.</div></section>
+        <line x1="690" y1="115" x2="740" y2="115" stroke="#8a6a3f" stroke-width="3" stroke-dasharray="7 7"/>
+        <text x="715" y="145" font-size="14" text-anchor="middle">Ayrım</text>
+      </svg>
+    </div>
 
-<section id="isa220"><span class="tag">14. ISA/BDS 220</span><h2>Standartların Birlikte Çalışması</h2>
-<table><tr><th>Konu</th><th>ISQM 1</th><th>ISQM 2</th><th>ISA/BDS 220</th></tr>
-<tr><td>Düzey</td><td>Firma</td><td>Bağımsız gözden geçiren</td><td>Sorumlu denetçi ve ekip</td></tr>
-<tr><td>Odak</td><td>Kurumsal sistem</td><td>Önemli yargıların objektif incelemesi</td><td>Tek işte kalite</td></tr>
-<tr><td>Zaman</td><td>Sürekli</td><td>Rapor tarihinden önce</td><td>Planlamadan rapora kadar</td></tr></table></section>
+    <p>Bu ilk kesik ile birlikte en az üç şey doğar:</p>
+    <ul>
+      <li><strong>Fark</strong>: Bir şeyin başka bir şeyden ayrılabilmesi.</li>
+      <li><strong>Yön</strong>: Ayrılan tarafların birbirine göre mevki kazanatı.</li>
+      <li><strong>İmkân</strong>: Taraflar arasında ilişki kurulabilme olasılığı.</li>
+    </ul>
 
-<section id="ornek"><span class="tag">15. UYGULAMA ÖRNEĞİ</span><h2>Orta Ölçekli Firma İçin Örnek Tasarım</h2>
-<p><b>Profil:</b> 4 ortak, 25 çalışan, 80 denetim işi, 5 KAYİK, tek ofis ve bulut tabanlı yazılım.</p>
-<table><tr><th>Hedef</th><th>Risk</th><th>Karşılık</th><th>Gösterge</th></tr>
-<tr><td>Yeterli personel</td><td>Yoğun sezonda kıdemli açığı</td><td>12 aylık plan, iş kabul kapasite eşiği</td><td>Kişi başı yük, gecikme</td></tr>
-<tr><td>Bağımsızlık</td><td>Yakın ilişkinin geç bildirilmesi</td><td>Merkezi beyan, üç aylık teyit</td><td>Geç bildirim sayısı</td></tr>
-<tr><td>Uygun yargı</td><td>Teknik danışmanın geç devreye girmesi</td><td>Zorunlu danışma tetikleyicileri</td><td>Danışma-rapor tarihi farkı</td></tr>
-<tr><td>Zamanında dosya</td><td>Arşivleme süresi aşımı</td><td>Otomatik uyarı ve ortak onayı</td><td>Geç dosya oranı</td></tr></table></section>
+    <div class="formula">K₁ : V → (V₊, V₉)
 
-<section id="dokumanlar"><span class="tag">16. BELGE SETİ</span><h2>Asgari Dokümantasyon</h2>
-<ul class="check"><li>Kalite yönetim sistemi el kitabı</li><li>Kalite hedefleri ve risk envanteri</li><li>Risk-karşılık matrisi</li><li>Yetki ve sorumluluk matrisi</li><li>Bağımsızlık politika ve beyanları</li><li>Müşteri kabul formları</li><li>İş yükü planı</li><li>Yetkinlik ve eğitim matrisi</li><li>Danışma prosedürü</li><li>Görüş ayrılığı prosedürü</li><li>EQR seçim kriterleri</li><li>EQR uygunluk beyanı</li><li>EQR çalışma formu</li><li>Şikâyet prosedürü</li><li>Dosya inceleme programı</li><li>Kök neden kayıtları</li><li>Düzeltici faaliyet planı</li><li>Yıllık değerlendirme raporu</li></ul></section>
+Burada:
+V   = varlık zemini
+Kⁱ  = ilk kesik (distinction operator)
+V₊  = birinci yaka
+V₋  = ikinci yaka</div>
 
-<section id="yol"><span class="tag">17. YOL HARİTASI</span><h2>12 Haftalık Uygulama Planı</h2>
-<table><tr><th>Dönem</th><th>Çalışma</th><th>Çıktı</th></tr>
-<tr><td>1–2</td><td>Firma ve iş yapısı analizi</td><td>Kapsam ve proje planı</td></tr>
-<tr><td>3–4</td><td>Kalite hedefi ve riskler</td><td>Risk envanteri</td></tr>
-<tr><td>5–6</td><td>Politika ve karşılık tasarımı</td><td>Risk-karşılık matrisi</td></tr>
-<tr><td>7–8</td><td>EQR sürecinin kurulması</td><td>EQR prosedürü ve formlar</td></tr>
-<tr><td>9–10</td><td>Teknoloji, eğitim ve pilot</td><td>Pilot bulguları</td></tr>
-<tr><td>11–12</td><td>Düzeltme, onay ve devreye alma</td><td>Onaylı sistem</td></tr></table></section>
+    <p>Bu aşamada henüz “üç” yoktur; sadece <strong>ayrım</strong> vardır. Yani bir ile iki arasında kalan eşik açılmıştır. Ontolojik dilde söylenirse: <strong>İlk kesik, ikiliği mümkün kılar; fakat çevrimi henüz kurmaz.</strong></p>
+  </section>
 
-<section id="kontrol"><span class="tag">18. KONTROL LİSTESİ</span><h2>Yönetim İçin Hızlı Uyum Kontrolü</h2>
-<ul class="check"><li>Kalite hedefleri yazılı mı?</li><li>Riskler firmaya özgü mü?</li><li>Her risk için karşılık var mı?</li><li>Sorumluluklar açık mı?</li><li>Ortak performansı kaliteyle ilişkili mi?</li><li>Bağımsızlık merkezi izleniyor mu?</li><li>Kabulde kapasite değerlendiriliyor mu?</li><li>Metodoloji güncel mi?</li><li>Dış hizmet sağlayıcılar izleniyor mu?</li><li>EQR gereken işler tanımlı mı?</li><li>EQR uygunluğu belgeli mi?</li><li>Rapor EQR öncesi engelleniyor mu?</li><li>İzleme risk bazlı mı?</li><li>Kök neden analizi yapılıyor mu?</li><li>Düzeltmeler test ediliyor mu?</li><li>Sistem yıllık değerlendiriliyor mu?</li></ul></section>
+  <section>
+    <h2>3. Hızır’ın yolu: iki yakayı bağlayan devinim</h2>
+    <p>İdris’in attığı ilk kesik ayrımı do şurur; fakat ayrım kendi başına yeterli değildir. İki yakanın sadece karşı karşıya durması, en fazla bir gerilim veya açık yön üretir. Hızır’ın yolu burada devreye girer: O, ayrılmış taraflar arasında <strong>dolaşım</strong>, <strong>ilmek</strong>, <strong>izlek</strong> ve <strong>devamlılık</strong> kuran ilkedir.</p>
+    <p>Bu nedenle Hızır, burada “sabit bir nokta” değil; <strong>ilişkiyi ölü bırakmayan akış ilkesi</strong> olarak yorumlanır. İdris ayrımı açar; Hızır ayrım boyunca yürür. İdris ilk kesiği vurur; Hızır o kesik boyunca yol açar.</p>
 
-<section id="kaynakca"><span class="tag">19. RESMÎ KAYNAKLAR</span><h2>Kaynakça</h2>
-<p><a href="https://www.iaasb.org/publications/international-standard-quality-management-isqm-1-quality-management-firms-perform-audits-or-reviews">IAASB – ISQM 1</a></p>
-<p><a href="https://www.iaasb.org/publications/international-standard-quality-management-isqm-2-engaging-quality-reviews">IAASB – ISQM 2</a></p>
-<p><a href="https://www.iaasb.org/publications/international-standard-auditing-220-revised-quality-management-audit-financial-statements">IAASB – ISA 220 (Revised)</a></p>
-<p><a href="https://www.iaasb.org/focus-areas/quality-management">IAASB – Quality Management Resources</a></p>
-<p class="small">Bu rehber eğitim ve uygulama tasarımı amacıyla hazırlanmıştır. Bağlayıcı uygulamada yürürlükteki KGK düzenlemeleri, ulusal mevzuat ve resmî standart metinleri esas alınmalıdır.</p></section>
+    <div class="svgbox">
+      <svg viewBox="0 0 980 280" width="100%" height="auto" role="img" aria-label="Hızır'ın yolu diyagramı">
+        <rect x="70" y="70" width="240" height="140" rx="18" fill="#eef4f8" stroke="#c9d9e2"/>
+        <text x="190" y="120" font-size="24" text-anchor="middle" font-weight="700">Birinci Yaka</text>
+        <text x="190" y="150" font-size="16" text-anchor="middle">neden / çıkış / etki başlangıcı</text>
 
-<footer>ISQM 1 ve ISQM 2 Uygulama Rehberi — Firma düzeyi kalite yönetimi, iş kalitesi gözden geçirmesi ve ISA/BDS 220 bağlantısı.</footer>
-</article></main></div></body></html>
+        <rect x="670" y="70" width="240" height="140" rx="18" fill="#f7efe8" stroke="#e4d4c3"/>
+        <text x="790" y="120" font-size="24" text-anchor="middle" font-weight="700">İkinci Yaka</text>
+        <text x="790" y="150" font-size="16" text-anchor="middle">karşılık / yanıt / tepki zemini</text>
+
+        <path d="M 310 140 C 400 20, 580 20, 670 140" fill="none" stroke="#2f5d73" stroke-width="5"/>
+        <polygon points="670,140 651,131 654,150" fill="#2f5d73"/>
+        <text x="490" y="45" font-size="18" text-anchor="middle" fill="#2f5d73">etki / gidiş</text>
+
+        <path d="M 670 165 C 570 255, 400 255, 310 165" fill="none" stroke="#8a6a3f" stroke-width="5"/>
+        <polygon points="310,165 329,156 326,175" fill="#8a6a3f"/>
+        <text x="490" y="250" font-size="18" text-anchor="middle" fill="#8a6a3f">tepki / dönüş</text>
+
+        <circle cx="490" cy="140" r="32" fill="#faf6ef" stroke="#d8cfbf" stroke-width="2"/>
+        <text x="490" y="135" font-size="18" text-anchor="middle" font-weight="700">Hızır</text>
+        <text x="490" y="156" font-size="11" text-anchor="middle">yol / dolaşım</text>
+      </svg>
+    </div>
+
+    <div class="note">
+      <strong>Önemli ayrım:</strong> Hızır burada üçün kendisi değildir; üçün doğmasını mümkün kılan <strong>geçiş ve geri dönüş yolu</strong>nun simgesidir.
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Bir, iki, üç: ontolojik basamakların özeti</h2>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Bir</h3>
+        <p><strong>Tekillik, dayanak, başlangıç nedeni.</strong> Vardır; fakat kendi başına bir devinim garantisi yoktur. Bu yüzden “salt neden durur” ifadesi önemlidir.</p>
+        <div class="formula">1 = Neden
+tek nokta
+tek kaynak
+tek ilke</div>
+      </div>
+      <div class="card">
+        <h3>İki</h3>
+        <p><strong>Yön, gerilim, doğrultu, karşılaşma.</strong> İlk kesikle iki yaka doğar. Etki çıkar; fakat geri dönüş yoksa süreç savrulabilir veya doğrusal kalır.</p>
+        <div class="formula">2 = Neden + Etki
+açık hat
+doğrultu
+savrulma imkânı</div>
+      </div>
+      <div class="card">
+        <h3>Üç</h3>
+        <p><strong>Geri dönüşlü ilişki, çevrim, tepki.</strong> Üçün gelişiyle etki karşılığa çarpar; karşılık yeni nedeni besler; böylece sürgit devinim başlar.</p>
+        <div class="formula">3 = Neden + Etki + Tepki
+çevrim
+geri besleme
+canlı ilişki</div>
+      </div>
+    </div>
+
+    <div class="note good">
+      <strong>Temel formül:</strong><br>
+      Bir = duruş potansiyeli<br>
+      İki = yön ve savrulma potansiyeli<br>
+      Üç = çevrim ve sürgit devinim potansiyeli
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Matematiksel modelleme</h2>
+    <p>Şimdi sembolik anlatımı daha açık bir matematiksel çerçeveye çevirelim. Amaç, mistik–ontolojik dili matematikle “kanıtlamak” değil; kavramsal yapıyı <strong>biçimsel bir modele</strong> dönüştürmektir.</p>
+
+    <h3>5.1. Minimal durumlar</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Durum</th>
+          <th>Yapı</th>
+          <th>Matematiksel karşılık</th>
+          <th>Ontolojik yorum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bir</td>
+          <td>Tek düğüm</td>
+          <td>{v}</td>
+          <td>Kaynak var; fakat dolaşım yok.</td>
+        </tr>
+        <tr>
+          <td>İki</td>
+          <td>Yönlü kenar</td>
+          <td>v₁ → v₂</td>
+          <td>Etki var; fakat geri dönüş garanti değil.</td>
+        </tr>
+        <tr>
+          <td>Üç</td>
+          <td>Yönlü çevrim</td>
+          <td>v₁ → v₂ → v₃ → v₁</td>
+          <td>Minimal geri besleme çevrimi.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="svgbox">
+      <svg viewBox="0 0 980 250" width="100%" height="auto" role="img" aria-label="Bir iki üç grafik modeli">
+        <text x="110" y="35" font-size="22" font-weight="700">Bir</text>
+        <circle cx="130" cy="130" r="28" fill="#f5efe4" stroke="#d8cfbf" stroke-width="2"/>
+        <text x="130" y="136" font-size="16" text-anchor="middle">N</text>
+        <text x="130" y="192" font-size="15" text-anchor="middle">tek neden</text>
+
+        <text x="430" y="35" font-size="22" font-weight="700">İki</text>
+        <circle cx="380" cy="130" r="26" fill="#eef4f8" stroke="#c9d9e2" stroke-width="2"/>
+        <text x="380" y="136" font-size="16" text-anchor="middle">N</text>
+        <circle cx="510" cy="130" r="26" fill="#f7efe8" stroke="#e4d4c3" stroke-width="2"/>
+        <text x="510" y="136" font-size="16" text-anchor="middle">E</text>
+        <line x1="406" y1="130" x2="482" y2="130" stroke="#2f5d73" stroke-width="4"/>
+        <polygon points="482,130 466,121 466,139" fill="#2f5d73"/>
+        <text x="445" y="192" font-size="15" text-anchor="middle">doğrultu / savrulma</text>
+
+        <text x="780" y="35" font-size="22" font-weight="700">Üç</text>
+        <circle cx="740" cy="90" r="26" fill="#f5efe4" stroke="#d8cfbf" stroke-width="2"/>
+        <text x="740" y="96" font-size="16" text-anchor="middle">N</text>
+        <circle cx="840" cy="150" r="26" fill="#eef4f8" stroke="#c9d9e2" stroke-width="2"/>
+        <text x="840" y="156" font-size="16" text-anchor="middle">E</text>
+        <circle cx="690" cy="165" r="26" fill="#f7efe8" stroke="#e4d4c3" stroke-width="2"/>
+        <text x="690" y="171" font-size="16" text-anchor="middle">T</text>
+
+        <line x1="762" y1="104" x2="815" y2="136" stroke="#2f5d73" stroke-width="4"/>
+        <polygon points="815,136 798,129 805,146" fill="#2f5d73"/>
+
+        <line x1="815" y1="161" x2="718" y2="164" stroke="#8a6a3f" stroke-width="4"/>
+        <polygon points="718,164 735,155 735,173" fill="#8a6a3f"/>
+
+        <line x1="699" y1="140" x2="731" y2="113" stroke="#5f4a2d" stroke-width="4"/>
+        <polygon points="731,113 714,119 725,132" fill="#5f4a2d"/>
+
+        <text x="762" y="220" font-size="15" text-anchor="middle">minimal çevrim</text>
+      </svg>
+    </div>
+
+    <h3>5.2. Dinamik model</h3>
+    <p>En yalın biçimde üçlü modeli şöyle yazabiliriz:</p>
+    <div class="formula">n_t   = neden durumu
+e_t   = etkinin ürettiği yön / çıktı
+t_t   = tepki / geri besleme
+
+e_t   = f(n_t)
+t_t   = g(e_t, n_t)
+n_(t+1) = h(t_t)
+
+Dolayısıyla:
+
+n_t → e_t → t_t → n_(t+1) → e_(t+1) → t_(t+1) → ...</div>
+
+    <p>Burada kritik eşik, son denklemde gizlidir. Tepki sadece “yanıt” değildir; bir sonraki çevrimin <strong>nedenini besleyen</strong> unsur hâline gelir. İşte canlı çevrim tam burada ortaya çıkar.</p>
+
+    <h3>5.3. Neden iki yetmez?</h3>
+    <div class="formula">Yalnızca bir:
+n_(t+1) = n_t
+→ durağanlık
+
+Bir + iki:
+e_t = f(n_t)
+→ yön üretilir ama kapanmaz
+→ açık doğrultu / savrulma
+
+Bir + iki + üç:
+t_t = g(e_t, n_t)
+n_(t+1)=h(t_t)
+→ geri besleme
+→ çevrim
+→ sürgit devinim</div>
+
+    <div class="note warn">
+      <strong>Buradaki “kapanma” sözüne dikkat:</strong> Matematiksel geri besleme, geometrik kapanma ile aynı şey değildir. Üç bir “üçgen kapattığı” için değil; geri dönüşlü ilişki kurduğu için anlamlıdır.
+    </div>
+  </section>
+
+  <section>
+    <h2>6. Çark, çevrim, mihrap ve geri besleme</h2>
+    <p>Çark, “üç”ün kendisi değildir. Üç, çarkın <strong>asgari ilişkisel koşulu</strong>dur. Çark ise bu ilişkinin süreklilik kazanmış davranışıdır. Mihrap da çarkın kendisi değildir; <strong>çarkın istikamet referansı</strong>dır.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Kavram</th>
+          <th>İşlev</th>
+          <th>Bu fasiküldeki yorum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>İlk Kesik</td>
+          <td>Ayrım</td>
+          <td>İdris’in simgesel fiili; iki yakayı mümkün kılar.</td>
+        </tr>
+        <tr>
+          <td>İki Yaka</td>
+          <td>Karşıt / karşılaşan yönler</td>
+          <td>Varlıktaki belirlenimlerin ilk ayrışmış yüzleri.</td>
+        </tr>
+        <tr>
+          <td>Üç</td>
+          <td>Geri besleme çevrimi</td>
+          <td>Neden–etki–tepki üçlüsü.</td>
+        </tr>
+        <tr>
+          <td>Çark</td>
+          <td>Süreklilik kazanmış çevrim</td>
+          <td>Üçlü ilişkinin sürgit devinimi.</td>
+        </tr>
+        <tr>
+          <td>Mihrap</td>
+          <td>Yön / merkez / kıble</td>
+          <td>Çarkın neye göre döndüğünü belirleyen referans.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="svgbox">
+      <svg viewBox="0 0 980 320" width="100%" height="auto" role="img" aria-label="Çark ve mihrap diyagramı">
+        <circle cx="490" cy="160" r="115" fill="#faf8f3" stroke="#d8cfbf" stroke-width="4"/>
+        <circle cx="490" cy="160" r="72" fill="none" stroke="#c8d3da" stroke-width="2" stroke-dasharray="7 7"/>
+        <circle cx="490" cy="160" r="28" fill="#f0e7d8" stroke="#cdbda5" stroke-width="2"/>
+
+        <text x="490" y="167" font-size="16" text-anchor="middle" font-weight="700">Mihrap</text>
+
+        <circle cx="490" cy="52" r="24" fill="#eef4f8" stroke="#c9d9e2" stroke-width="2"/>
+        <text x="490" y="58" font-size="16" text-anchor="middle">N</text>
+
+        <circle cx="592" cy="215" r="24" fill="#f7efe8" stroke="#e4d4c3" stroke-width="2"/>
+        <text x="592" y="221" font-size="16" text-anchor="middle">E</text>
+
+        <circle cx="388" cy="215" r="24" fill="#f2efe9" stroke="#d8cfbf" stroke-width="2"/>
+        <text x="388" y="221" font-size="16" text-anchor="middle">T</text>
+
+        <path d="M 505 73 A 102 102 0 0 1 573 196" fill="none" stroke="#2f5d73" stroke-width="4"/>
+        <polygon points="573,196 557,188 563,205" fill="#2f5d73"/>
+
+        <path d="M 570 229 A 102 102 0 0 1 410 229" fill="none" stroke="#8a6a3f" stroke-width="4"/>
+        <polygon points="410,229 425,219 425,238" fill="#8a6a3f"/>
+
+        <path d="M 405 196 A 102 102 0 0 1 475 73" fill="none" stroke="#5f4a2d" stroke-width="4"/>
+        <polygon points="475,73 470,90 487,84" fill="#5f4a2d"/>
+
+        <text x="490" y="300" font-size="18" text-anchor="middle">Çark = çevrimin sürekliliği · Mihrap = yön referansı</text>
+      </svg>
+    </div>
+  </section>
+
+  <section>
+    <h2>7. İnsanî düzlem: idrak–irade–kudret ve fiil</h2>
+    <p>Arşivde daha önce “Üç Kuvve – Bir Fiil” olarak geçen <strong>idrak–irade–kudret</strong> modeli, bu metinde temel ontolojik tanım değil; insanî düzlemde kurulmuş <strong>uygulama örneği</strong> olarak okunur. Yani üçün ana tanımı yine neden–etki–tepki çevrimidir; idrak–irade–kudret ise bu yapının insan eylemindeki tercümesidir.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Ontolojik model</h3>
+        <div class="formula">Neden → Etki → Tepki → yeni neden</div>
+        <p>Bu, varlık ve oluşun asgari çevrim modelidir.</p>
+      </div>
+      <div class="card">
+        <h3>İnsanî model</h3>
+        <div class="formula">İdrak → İrade → Kudret → Fiil</div>
+        <p>Burada “fiil”, üçlü kuvvenin görünür oluşudur; çevrimsel yapı fiilde toplumsal ve tarihsel sahaya taşınır.</p>
+      </div>
+    </div>
+
+    <p>Bu açıdan Hızır’ın yolu, sadece kozmolojik dolaşım değil; insanda da <strong>anlamdan karara, karardan kudrete, kudretten fiile</strong> giden yolun canlı tutulmasıdır.</p>
+  </section>
+
+  <section>
+    <h2>8. Sonuç: “Üç”ün kanonik kısa tanımı</h2>
+    <p>Bu fasikülün vardığD� sonuç, birkaç cümlede şöyle özetlenebilir:</p>
+
+    <div class="callout">
+      <p><strong>Bir, nedeni verir.</strong></p>
+      <p><strong>İki, yönü ve karşılaşmayı veri\.</strong></p>
+      <p><strong>Üç ise tepki aracılığıyla geri dönüşlü çevrimi doğurur.</strong></p>
+      <p>Bu yüzden <strong>üç = kapanma</strong> değil; <strong>üç = çevrim kuran üçüncü ilişki</strong>dir.</p>
+      <p>İdris’in ilk kesiği, ayrımı açar. Hızır’ın yolu, o ayrım boyunca dolaşımı sürdürür. Çark ise bu ilişkinin sürgit devinim kazanmış hâlidir.</p>
+    </div>
+
+    <div class="formula">Kanonik önerme:
+
+Üç, üçüncü bir nesnenin eklenmesi değil;
+neden ile etkinin,
+tepki aracılığD�yla,
+yeniden neden üretebilir hâle gelmesidir.
+
+Bu geri dönüş kapanma değil çevrimdir.
+Çevrim süreklilik kazandığD�nda çark doğar.</div>
+
+    <p class="small">Bu fasikül, arşivdeki çekirdek beyanlar esas alınarak hazırlanmış yorumlayıcı bir metindir. Buradaki matematiksel modelleme, kavramı açıklamak için kurulmuş biçimsel bir iskelettir; bilimsel deneysel yasa iddiası taşımaz.</p>
+  </section>
+
+  <footer class="hero footer">
+    <strong>Dosya notu:</strong> Bu belge beyaz zeminli, tek dosyalık HTML fasikül olarak hazırlanmıştır. İçindeki görseller harici dosya değil; sayfaya gömülü vektörel diyagramlardır. Böylece belge taşınabilir, hafif ve düzenlenebilir kalır.
+  </footer>
+
+</div>
+</body>
+</html>
